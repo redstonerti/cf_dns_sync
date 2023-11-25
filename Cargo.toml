@@ -1,0 +1,22 @@
+[package]
+name = "cf_dns_sync"
+version = "1.0.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+ureq = { version = "2.5.0", features = ["json"] }
+serde_json = "1.0.108"
+serde = "1.0.190"
+serde_derive = "1.0.190"
+public-ip = "0.2"
+tokio = { version = "1.33.0", features = ["full"] }
+jsonformat = "2.0.0"
+chrono = "0.4.31"
+colored = "2.0.4"
+dialoguer = "0.11.0"
+home = "0.5.5"
+atty = "0.2.14"
+supports-color = "2.1.0"
+sysinfo = "0.29.10"
