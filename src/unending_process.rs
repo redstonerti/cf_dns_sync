@@ -745,11 +745,18 @@ pub fn format_err(err: impl Debug) -> String {
     format!(". Here's the error:\n-------\n{:#?}", err)
 }
 pub fn update_dns_list(config: &mut Config, config_path: &PathBuf) {
+    let mut first_time = false;
     loop {
+        if !first_time {
+            std::thread::sleep(std::time::Duration::from_millis(100));
+        };
+        first_time = true;
         //Get DNS record list
         let result = match get_dns_record_list(&config) {
             Ok(result) => result,
-            Err(()) => continue,
+            Err(()) => {
+                continue;
+            }
         };
         //Convert response to json
         let json: Value = match serde_json::from_str(&result) {
