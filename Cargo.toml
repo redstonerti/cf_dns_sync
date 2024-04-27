@@ -1,6 +1,6 @@
 [package]
 name = "cf_dns_sync"
-version = "1.0.1"
+version = "1.0.2"
 edition = "2021"
 description = "A little ip changer using cloudflare's api. Useful for people with non - static ip addresses"
 license = "MIT OR Apache-2.0"
