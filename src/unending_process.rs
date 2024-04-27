@@ -259,7 +259,7 @@ pub enum LogType {
 #[tokio::main]
 pub async fn process() {
     check_for_root();
-    let (config, _) = get_config();
+    let (mut config, _) = get_config();
     let mut wait_on_startup = true;
     loop {
         if wait_on_startup {
@@ -276,6 +276,7 @@ pub async fn process() {
             std::thread::sleep(std::time::Duration::from_secs_f32(
                 config.seconds_to_wait_per_restart as f32,
             ));
+            config = get_config().0;
         }
         let ip = match public_ip::addr().await {
             Some(_ip_addr) => {
